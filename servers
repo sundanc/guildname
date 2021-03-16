@@ -1,0 +1,16 @@
+import discord
+from discord.ext import commands
+
+client = commands.Bot(command_prefix='!')
+client.remove_command("help")
+
+
+@client.event #ready
+async def on_ready():
+    print('Servers connected to:')
+    for guild in client.guilds:
+        print(guild.name)
+    await asyncio.sleep(3)
+    
+    
+    client.run("TOKEN")
